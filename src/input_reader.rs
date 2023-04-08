@@ -9,4 +9,10 @@ fn get_bernoulli_point() -> BernoulliPoints{
     return stream_line_points
 }
 
-fn get_system_properties()
+fn get_system_properties() -> SystemProperties {
+    let the_file = "../input/system_definition.json";
+    let stream_line_points: BernoulliPoints = serde_json::from_str(the_file)
+        .expect("JSON was not well-formatted");
+
+    return SystemProperties
+}
