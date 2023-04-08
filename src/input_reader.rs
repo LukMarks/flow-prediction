@@ -3,13 +3,23 @@ use crate::bernoulli_point::BernoulliPoint;
 use crate::system_properties::SystemProperties;
 use crate::configuration::SessionConfig;
 
-fn get_bernoulli_point() -> BernoulliPoint{
 
-    let the_file = "../input/stream_line_property.json";
-    let stream_line_points: BernoulliPoint = serde_json::from_str(the_file)
+fn get_inlet_bernoulli_point() -> BernoulliPoint{
+
+    let the_file = "../input/inlet.json";
+    let inlet_stream_line_points: BernoulliPoint = serde_json::from_str(the_file)
         .expect("JSON was not well-formatted");
 
-    return stream_line_points
+    return inlet_stream_line_points
+}
+
+fn get_out_bernoulli_point() -> BernoulliPoint{
+
+    let the_file = "../input/outlet.json";
+    let outlet_stream_line_points: BernoulliPoint = serde_json::from_str(the_file)
+        .expect("JSON was not well-formatted");
+
+    return outlet_stream_line_points
 }
 
 fn get_system_properties() -> SystemProperties {
