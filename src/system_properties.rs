@@ -1,6 +1,6 @@
-#[derive(Debug, Deserialize)]
-struct SystemProperties{
-    density: u16,
-    fluid_column_height: u16,
-    gravity_acceleration: u16
+#[derive(Debug, serde::Deserialize)]
+pub(crate) struct SystemProperties{
+    density: f32,
+    fluid_column_height: f32,
+    gravity_acceleration: f32
 }
