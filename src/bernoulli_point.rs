@@ -1,5 +1,6 @@
+#[derive(Debug, Deserialize)]
 struct BernoulliPoint {
-    pressure : u64,
-    velocity: u64,
-    height: u64
+    pressure : u16,
+    velocity: u16,
+    height: u16
 }
