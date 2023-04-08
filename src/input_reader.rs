@@ -1,6 +1,7 @@
 use serde::Deserialize;
 use crate::bernoulli_point::BernoulliPoint;
 use crate::system_properties::SystemProperties;
+use crate::configuration::SessionConfig;
 
 fn get_bernoulli_point() -> BernoulliPoint{
 
@@ -17,4 +18,12 @@ fn get_system_properties() -> SystemProperties {
         .expect("JSON was not well-formatted");
 
     return stream_line_points
+}
+
+fn get_session_configuration() -> SessionConfig {
+    let the_file = "../config/configuration.json";
+    let config: SessionConfig = serde_json::from_str(the_file)
+        .expect("JSON was not well-formatted");
+
+    return config
 }
