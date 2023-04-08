@@ -1,4 +1,8 @@
-#[derive(Debug, Deserialize)]
+use crate::bernoulli_point::BernoulliPoint;
+use crate::system_properties::SystemProperties;
+
+
+#[derive(Debug, serde::Deserialize)]
 struct BernoulliSolver {
     entry_point: BernoulliPoint,
     exit_point: BernoulliPoint,
@@ -6,9 +10,9 @@ struct BernoulliSolver {
 }
 
 impl BernoulliSolver {
-    fn get_exit_speed() -> u16 {
-        let exit_speed: u16 = sqrt(self::stream_line_properties.gravity_acceleration *
-            self::stream_line_properties.fluid_column_height);
+    fn get_exit_speed(&self) -> f32 {
+        let exit_speed: f32 = f32::sqrt(Self::stream_line_properties.gravity_acceleration *
+            Self::stream_line_properties.fluid_column_height);
         return exit_speed
     }
 }

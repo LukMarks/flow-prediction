@@ -1,4 +1,4 @@
-#[derive(Debug, serde::Deserialize)]
+#[derive(Debug, Default, serde::Deserialize)]
 pub(crate) struct BernoulliPoint {
     pressure : f32,
     velocity: f32,
