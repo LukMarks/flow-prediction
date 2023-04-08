@@ -1,5 +1,6 @@
 {
   "density": 1000,
+  "fluid_column": 0,
   "P1": {
     "pressure": 0,
     "velocity": 0,
