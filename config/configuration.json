@@ -1,4 +1,7 @@
 {
   "save_result_csv": true,
-  "show_plot": true
+  "show_plot": true,
+  "inlet_file_path": "/home/lucas/Projects/Flow-Model/input/inlet.json",
+  "outlet_file_path": "/home/lucas/Projects/Flow-Model/input/outlet.json",
+  "streamline_file_path": "/home/lucas/Projects/Flow-Model/input/system_definition.json"
 }
