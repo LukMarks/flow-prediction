@@ -1,3 +1,4 @@
+use serde::__private::de::Content::F32;
 use crate::bernoulli_point::BernoulliPoint;
 use crate::system_properties::SystemProperties;
 
@@ -14,3 +15,16 @@ impl BernoulliSolver {
         return exit_pressure
     }
 }
+
+impl BernoulliSolver{
+    fn get_exit_velocity(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
+                         properties: SystemProperties) -> f32{
+
+        let exit_velocity: f32 = f32::sqrt(((1/properties.density)*(entry_point.pressure-exit_point.pressure) +
+        properties.gravity_acceleration * (properties.fluid_column_height+entry_point.height-exit_point.height))*2+
+        entry_point.velocity.powi(2));
+
+        return exit_velocity
+    }
+}
+
