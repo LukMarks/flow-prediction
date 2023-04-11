@@ -28,3 +28,14 @@ impl BernoulliSolver{
     }
 }
 
+impl BernoulliSolver {
+    fn get_exit_height(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
+                       properties: SystemProperties) -> f32 {
+
+        let exit_height:f32 = (properties.fluid_column_height+entry_point.height) +
+            (1/properties.gravity_acceleration)*(((entry_point.pressure-exit_point.pressure)/properties.density)+
+            (entry_point.velocity.powi(2) - exit_point.velocity.powi(2))/2);
+
+        return exit_height
+    }
+}
