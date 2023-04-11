@@ -6,7 +6,7 @@ use crate::system_properties::SystemProperties;
 pub(crate) struct BernoulliSolver {}
 
 impl BernoulliSolver {
-    fn get_exit_pressure(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
+    pub fn get_exit_pressure(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
                          properties: SystemProperties) -> f32{
         let exit_pressure: f32 = entry_point.pressure +
             properties.density*(0.5*(entry_point.velocity.powi(2) - exit_point.velocity.powi(2)) +
@@ -17,7 +17,7 @@ impl BernoulliSolver {
 }
 
 impl BernoulliSolver{
-    fn get_exit_velocity(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
+    pub fn get_exit_velocity(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
                          properties: SystemProperties) -> f32{
 
         let exit_velocity: f32 = f32::sqrt(((1/properties.density)*(entry_point.pressure-exit_point.pressure) +
@@ -29,7 +29,7 @@ impl BernoulliSolver{
 }
 
 impl BernoulliSolver {
-    fn get_exit_height(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
+    pub fn get_exit_height(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
                        properties: SystemProperties) -> f32 {
 
         let exit_height:f32 = (properties.fluid_column_height+entry_point.height) +
