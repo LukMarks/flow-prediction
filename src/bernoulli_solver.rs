@@ -9,7 +9,7 @@ impl BernoulliSolver {
                          properties: SystemProperties) -> f32{
         let exit_pressure: f32 = entry_point.pressure +
             properties.density*(0.5*(entry_point.velocity.powi(2) - exit_point.velocity.powi(2)) +
-                properties.gravity_acceleration*(entry_point.height-exit_point.height));
+                properties.gravity_acceleration*(entry_point.height + properties.fluid_column_height - exit_point.height));
 
         return exit_pressure
     }
