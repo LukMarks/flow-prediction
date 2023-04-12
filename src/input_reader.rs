@@ -1,5 +1,5 @@
 use serde::Deserialize;
-use crate::bernoulli_point::BernoulliPoint;
+use crate::r#mod::BernoulliPoint;
 use crate::system_properties::SystemProperties;
 use crate::configuration::SessionConfig;
 use std::env;
