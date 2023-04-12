@@ -1,5 +1,5 @@
-use crate::r#mod::BernoulliPoint;
-use crate::r#mod::SystemProperties;
+use crate::bernoulli::bernoulli_point::BernoulliPoint;
+use crate::bernoulli::flow_properties::SystemProperties;
 
 #[derive(Debug, serde::Deserialize)]
 pub(crate) struct BernoulliSolver {}
