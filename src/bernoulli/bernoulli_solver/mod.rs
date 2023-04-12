@@ -42,12 +42,12 @@ impl BernoulliSolver {
 impl BernoulliSolver {
     pub fn solve(solver_mode: String, entry_point: BernoulliPoint, exit_point: BernoulliPoint,
              properties: SystemProperties) -> f32{
-        // let result:f32 = match solver_mode.to_lowercase(){
-        //     "pressure".parse().unwrap() => BernoulliSolver::get_exit_pressure(entry_point, exit_point, properties),
-        //     "velocity".parse().unwrap() => BernoulliSolver::get_exit_velocity(entry_point, exit_point, properties),
-        //     "height".parse().unwrap() => BernoulliSolver::get_exit_height(entry_point, exit_point, properties),
-        //     _ => println!("Solver Invalid. Please use of the following options: Pressure;\nVelocity;\nHeight.")
-        // };
-        return 0.0;//result;
+        let result:f32 = match solver_mode.to_lowercase().as_str(){
+            "pressure" => BernoulliSolver::get_exit_pressure(entry_point, exit_point, properties),
+            "velocity"=> BernoulliSolver::get_exit_velocity(entry_point, exit_point, properties),
+            "height"=> BernoulliSolver::get_exit_height(entry_point, exit_point, properties),
+            _ => println!("Solver Invalid. Please use of the following options: Pressure;\nVelocity;\nHeight.")
+        };
+        return result;
     }
 }
