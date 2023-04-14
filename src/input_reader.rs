@@ -1,11 +1,12 @@
+mod super::bernoulli;
+
 use serde::Deserialize;
-use crate::r#mod::BernoulliPoint;
-use crate::system_properties::SystemProperties;
+use crate::bernoulli::bernoulli_system::*;
 use crate::configuration::SessionConfig;
 use std::env;
 use std::fs;
 
-pub(crate)fn get_inlet_bernoulli_point(inlet_file_path: &str) -> BernoulliPoint{
+pub(crate) fn get_inlet_bernoulli_point(inlet_file_path: &str) -> BernoulliPoint{
 
     let inlet_file_content =  fs::read_to_string(inlet_file_path)
         .expect("Should have been able to read the file");
@@ -16,7 +17,7 @@ pub(crate)fn get_inlet_bernoulli_point(inlet_file_path: &str) -> BernoulliPoint{
     return inlet_stream_line_points
 }
 
-pub(crate)fn get_outlet_bernoulli_point(outlet_file_path: &str) -> BernoulliPoint{
+pub(crate) fn get_outlet_bernoulli_point(outlet_file_path: &str) -> BernoulliPoint{
 
     let outlet_file_content =  fs::read_to_string(outlet_file_path)
         .expect("Should have been able to read the file");
@@ -27,7 +28,7 @@ pub(crate)fn get_outlet_bernoulli_point(outlet_file_path: &str) -> BernoulliPoin
     return outlet_stream_line_points
 }
 
-pub(crate)fn get_system_properties(streamline_file_path: &str) -> SystemProperties {
+pub(crate) fn get_system_properties(streamline_file_path: &str) -> SystemProperties {
 
 
     let system_properties_file_content =  fs::read_to_string(streamline_file_path)

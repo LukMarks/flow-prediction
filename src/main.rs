@@ -1,14 +1,15 @@
-mod input_reader;
 mod bernoulli;
 mod configuration;
 mod utils;
+pub mod input_reader;
+
 use std::env;
 
 use crate::configuration::SessionConfig;
 use crate::input_reader::{get_session_configuration, get_inlet_bernoulli_point,
                           get_outlet_bernoulli_point, get_system_properties};
 
-use crate::bernoulli::bernoulli_system::*;
+use crate::bernoulli::bernoulli_system::BernoulliSolver;
 
 
 fn main() {
@@ -21,7 +22,10 @@ fn main() {
     let streamline_exit:BernoulliPoint = get_outlet_bernoulli_point(&session_config.outlet_file_path);
     let streamline_entry:BernoulliPoint = get_inlet_bernoulli_point(&session_config.inlet_file_path);
 
+    let flow_result:f32;BernoulliSolver::solve(session_config.solver_mode,
+    streamline_entry, streamline_exit, stream_properties);
 
+    
     if session_config.show_plot {
         utils::save_result_plot();
     }else if session_config.save_result_csv {
