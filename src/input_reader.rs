@@ -1,8 +1,7 @@
-mod super::bernoulli;
-
-use serde::Deserialize;
-use crate::bernoulli::bernoulli_system::*;
+use crate::bernoulli::bernoulli_point::BernoulliPoint;
+use crate::bernoulli::flow_properties::SystemProperties;
 use crate::configuration::SessionConfig;
+use serde::Deserialize;
 use std::env;
 use std::fs;
 

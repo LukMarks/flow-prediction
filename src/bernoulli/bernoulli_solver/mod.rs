@@ -46,8 +46,13 @@ impl BernoulliSolver {
             "pressure" => BernoulliSolver::get_exit_pressure(entry_point, exit_point, properties),
             "velocity"=> BernoulliSolver::get_exit_velocity(entry_point, exit_point, properties),
             "height"=> BernoulliSolver::get_exit_height(entry_point, exit_point, properties),
-            _ => println!("Solver Invalid. Please use of the following options: Pressure;\nVelocity;\nHeight.")
+            _ => solver_mode_exception()
         };
         return result;
     }
+}
+
+pub fn solver_mode_exception() -> f32{
+     println!("Solver Invalid. Please use of the following options: Pressure;\nVelocity;\nHeight.");
+    return  0.0;
 }
