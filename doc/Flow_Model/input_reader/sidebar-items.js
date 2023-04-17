@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["get_inlet_bernoulli_point",""],["get_outlet_bernoulli_point",""],["get_session_configuration",""],["get_system_properties",""]]};

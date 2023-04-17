@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["get_configuration_file_path",""],["main",""]],"mod":[["bernoulli",""],["configuration",""],["input_reader",""],["utils",""]]};

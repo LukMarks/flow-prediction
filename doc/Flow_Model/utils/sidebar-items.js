@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["bernoulli_point_to_string",""],["save_result_data",""],["show_result",""]]};

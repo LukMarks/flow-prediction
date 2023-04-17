@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["bernoulli_point",""],["bernoulli_solver",""],["flow_properties",""]]};
