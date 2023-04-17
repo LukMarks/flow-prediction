@@ -1,8 +1,9 @@
 {
-  "save_result_csv": true,
-  "show_plot": true,
+  "save_result": true,
+  "show_result": true,
   "solver_mode": "Velocity",
   "inlet_file_path": "/home/lucas/Projects/Flow-Model/input/inlet.json",
   "outlet_file_path": "/home/lucas/Projects/Flow-Model/input/outlet.json",
-  "streamline_file_path": "/home/lucas/Projects/Flow-Model/input/system_definition.json"
+  "streamline_file_path": "/home/lucas/Projects/Flow-Model/input/system_definition.json",
+  "result_file_path": "/home/lucas/Projects/Flow-Model/result.json"
 }
