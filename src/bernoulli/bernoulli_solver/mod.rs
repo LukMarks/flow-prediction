@@ -13,6 +13,15 @@ impl BernoulliSolver {
 
         return exit_pressure
     }
+
+    fn set_exit_point_from_pressure(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
+                                  properties: SystemProperties) -> BernoulliPoint{
+
+        let exit_speed: f32 = BernoulliSolver::get_exit_height(entry_point, exit_point, properties);
+        let mut exit_value:BernoulliPoint = entry_point;
+        exit_value.pressure = exit_speed;
+        return exit_value;
+    }
 }
 
 impl BernoulliSolver{
@@ -24,6 +33,15 @@ impl BernoulliSolver{
         entry_point.velocity.powi(2));
 
         return exit_velocity
+    }
+
+    fn set_exit_point_from_velocity(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
+                                    properties: SystemProperties) -> BernoulliPoint{
+
+        let exit_speed: f32 = BernoulliSolver::get_exit_velocity(entry_point, exit_point, properties);
+        let mut exit_value:BernoulliPoint = entry_point;
+        exit_value.velocity = exit_speed;
+        return exit_value;
     }
 }
 
@@ -37,22 +55,31 @@ impl BernoulliSolver {
 
         return exit_height
     }
+
+    fn set_exit_point_from_height(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
+                                    properties: SystemProperties) -> BernoulliPoint{
+
+        let exit_speed: f32 = BernoulliSolver::get_exit_height(entry_point, exit_point, properties);
+        let mut exit_value:BernoulliPoint = entry_point;
+        exit_value.height = exit_speed;
+        return exit_value;
+    }
 }
 
 impl BernoulliSolver {
     pub fn solve(solver_mode: String, entry_point: BernoulliPoint, exit_point: BernoulliPoint,
-             properties: SystemProperties) -> f32{
-        let result:f32 = match solver_mode.to_lowercase().as_str(){
-            "pressure" => BernoulliSolver::get_exit_pressure(entry_point, exit_point, properties),
-            "velocity"=> BernoulliSolver::get_exit_velocity(entry_point, exit_point, properties),
-            "height"=> BernoulliSolver::get_exit_height(entry_point, exit_point, properties),
+             properties: SystemProperties) -> BernoulliPoint{
+        let result:BernoulliPoint = match solver_mode.to_lowercase().as_str(){
+            "pressure" => BernoulliSolver::set_exit_point_from_velocity(entry_point, exit_point, properties),
+            "velocity"=> BernoulliSolver::set_exit_point_from_pressure(entry_point, exit_point, properties),
+            "height"=> BernoulliSolver::set_exit_point_from_height(entry_point, exit_point, properties),
             _ => solver_mode_exception()
         };
         return result;
     }
 }
 
-pub fn solver_mode_exception() -> f32{
+pub fn solver_mode_exception() -> BernoulliPoint {
      println!("Solver Invalid. Please use of the following options: Pressure;\nVelocity;\nHeight.");
-    return  0.0;
+    return  BernoulliPoint{pressure: 0.0, velocity: 0.0, height: 0.0};
 }
