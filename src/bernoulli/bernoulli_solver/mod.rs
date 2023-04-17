@@ -17,7 +17,7 @@ impl BernoulliSolver {
     fn set_exit_point_from_pressure(entry_point: BernoulliPoint, exit_point: BernoulliPoint,
                                   properties: SystemProperties) -> BernoulliPoint{
 
-        let exit_speed: f32 = BernoulliSolver::get_exit_height(entry_point, exit_point, properties);
+        let exit_speed: f32 = BernoulliSolver::get_exit_pressure(entry_point, exit_point, properties);
         let mut exit_value:BernoulliPoint = entry_point;
         exit_value.pressure = exit_speed;
         return exit_value;
