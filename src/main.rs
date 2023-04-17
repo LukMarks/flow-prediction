@@ -22,15 +22,14 @@ fn main() {
     let streamline_exit:BernoulliPoint = get_outlet_bernoulli_point(&session_config.outlet_file_path);
     let streamline_entry:BernoulliPoint = get_inlet_bernoulli_point(&session_config.inlet_file_path);
 
-    let flow_result:f32;BernoulliSolver::solve(session_config.solver_mode,
+    let flow_result:BernoulliPoint = BernoulliSolver::solve(session_config.solver_mode,
     streamline_entry, streamline_exit, stream_properties);
 
-    // println!("{:?}", flow_result);
-
-    if session_config.show_plot {
-        utils::save_result_plot();
-    }else if session_config.save_result_csv {
-        utils::save_result_data();
+    if session_config.show_result {
+        utils::show_result(&flow_result);
+    }
+    if session_config.save_result {
+        utils::save_result_data(&session_config.result_file_path, &flow_result);
     }
 
 }
