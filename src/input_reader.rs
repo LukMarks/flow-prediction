@@ -1,8 +1,8 @@
 use crate::bernoulli::bernoulli_point::BernoulliPoint;
 use crate::bernoulli::flow_properties::SystemProperties;
 use crate::configuration::SessionConfig;
-use serde::Deserialize;
-use std::env;
+
+
 use std::fs;
 
 pub(crate) fn get_inlet_bernoulli_point(inlet_file_path: &str) -> BernoulliPoint{
