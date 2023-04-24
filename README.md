@@ -1,7 +1,10 @@
 # Flow-Model
 
 Simple application to estimate a free flow (on non-compressive fluid) from a repository. In essence, the flow 
-estimation are solving using the Bernoulli Equation. 
+estimation are solving using the Bernoulli Equation. The base model is defined as follows:
+
+![BernoulliModel](img/BernoulliModel.png)
+
 
 ## How To Use
 For use **Flow-Model** its necessary create three json file. In the configuration file, in 
