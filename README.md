@@ -50,7 +50,7 @@ And finally, there is a system properties configuration file, with the following
 
 To run **Flow-Model** you just need to pass the configuration file path:
 ```shell
-./Flow-Model /path/to/configuration.json
+./flow-model /path/to/configuration.json
 ```
 As result, you should get a new Bernoulli Point structure saved in the  `result_file_path` 
 which contains the solved model.
