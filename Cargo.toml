@@ -1,5 +1,5 @@
 [package]
-name = "Flow-Model"
+name = "flow-model"
 version = "0.1.0"
 edition = "2021"
 
